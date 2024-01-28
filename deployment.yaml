@@ -16,7 +16,8 @@ spec:
         - name: story
           image: kadirdocker123/kube-data-persist:2
           volumeMounts:
-            -mountPath: /app/story
+            - mountPath: /app/story
+              name: story-vol
       volumes:
-        -name: story-vol
-        emptyDir: {}
+        - name: story-vol
+          emptyDir: {}
