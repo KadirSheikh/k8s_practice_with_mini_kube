@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: story-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: story
+  template:
+    metadata:
+      labels:
+        app: story
+    spec:
+      containers:
+        - name: story
+          image: kadirdocker123/kube-data-persist:2
+          volumeMounts:
+            -mountPath: /app/story
+      volumes:
+        -name: story-vol
+        emptyDir: {}
